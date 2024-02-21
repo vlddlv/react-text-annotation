@@ -1,5 +1,5 @@
 import React from 'react'
-import { MarkProps } from './Types'
+import { MarkProps } from '../types'
 
 const Mark: React.FC<MarkProps> = (props) => {
   const { highlight, start, end, content, onClick } = props

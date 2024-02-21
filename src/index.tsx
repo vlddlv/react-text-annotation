@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import TextWrapper from './TextWrapper';
-import { TextAnnotatorProps } from './Types'
+import TextWrapper from './components/TextWrapper';
+import { TextAnnotatorProps, Annotation } from './types'
 import styled from '@emotion/styled'
 
 const Container = styled.div<{ disableSelection: any, highlight: any }>`
@@ -41,7 +41,7 @@ const Container = styled.div<{ disableSelection: any, highlight: any }>`
   }
 `;
 
-const TextAnnotator: React.FC<any> = (props: TextAnnotatorProps<any>) => {
+const TextAnnotator: React.FC<TextAnnotatorProps<Annotation>> = (props: TextAnnotatorProps<Annotation>) => {
 
     const [disableSelection, setDisableSelection] = useState(true)
     const boxRef = useRef<HTMLInputElement | null>(null)
@@ -89,5 +89,5 @@ const TextAnnotator: React.FC<any> = (props: TextAnnotatorProps<any>) => {
     )
 }
 
-export type { Annotation, Highlight } from './Types';
+export type { Annotation, Highlight } from './types';
 export { TextAnnotator }

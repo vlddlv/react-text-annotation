@@ -1,6 +1,6 @@
 import React from 'react'
-import { selectionIsEmpty, selectionIsBackwards, splitWithOffsets } from './Functions'
-import { Annotation, TextAnnotatorProps } from './Types'
+import { selectionIsEmpty, selectionIsBackwards, splitWithOffsets } from '../functions'
+import { Annotation, TextAnnotatorProps } from '../types'
 import Splitter from './Splitter'
 
 const TextWrapper: React.FC<any> = (props: TextAnnotatorProps<Annotation>) => {

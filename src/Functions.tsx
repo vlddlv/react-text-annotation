@@ -1,5 +1,5 @@
 import sortBy from 'lodash.sortby'
-import { Split } from './Types'
+import { Split } from './types'
 
 export const splitWithOffsets = (text: any, offsets: { start: number; end: number }[]) => {
   let lastEnd = 0
