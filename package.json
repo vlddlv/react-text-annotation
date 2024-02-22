@@ -1,7 +1,7 @@
 {
   "name": "react-text-annotation",
   "version": "0.0.1",
-  "description": "React component for text annotation",
+  "description": "Text annotation component for React",
   "main": "./lib/index",
   "types": "./lib/declare_module.d.ts",
   "files": [
@@ -14,6 +14,23 @@
   },
   "author": "Vladimir Kokovic",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vlddlv/react-text-annotation.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "keywords": [
+    "react",
+    "text",
+    "annotation",
+    "annotator",
+    "text annotator",
+    "text annotation",
+    "react text annotator",
+    "react text annotation"
+  ],
   "dependencies": {
     "lodash.sortby": "^4.7.0"
   },
