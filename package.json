@@ -1,6 +1,6 @@
 {
   "name": "react-text-annotation",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Text annotation component for React",
   "main": "./lib/index",
   "types": "./lib/declare_module.d.ts",
@@ -16,10 +16,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vlddlv/react-text-annotation.git"
+    "url": "git+https://github.com/vlddlv/react-text-annotation.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "keywords": [
     "react",

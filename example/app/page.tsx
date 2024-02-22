@@ -56,12 +56,13 @@ export default function Home() {
   }, []);
 
   const handleAnnotate = (text: any) => {
+    console.log(text)
     setAnnotations(text)
   }
 
   return (
     <Page>
-      <h2>Annotator:</h2>
+      <h2 style={{fontSize: "30px"}}>Annotator:</h2>
       <TextAnnotator
         value={annotations}
         onChange={handleAnnotate}
@@ -69,12 +70,12 @@ export default function Home() {
         highlight={{ id: selectedCategory.id, color: selectedCategory.color }}
       />
 
-      <h2>Current Category</h2>
+      <h2 style={{fontSize: "30px"}}>Current Category</h2>
       {categories.map((category, index) => (
         <CategoryButton backgroundColor={category.color} key={index} onClick={() => handleCategorySelect(category)}>{category.name}</CategoryButton>
       ))}
 
-      <h2>Selected:</h2>
+      <h2 style={{fontSize: "30px"}}>Selected:</h2>
       {annotations.map((annotation, index) => (
         <SelectedCategory key={index} backgroundColor={annotation.highlight.color}><strong>{annotation.text}</strong> <small>(start: {annotation.start}, end: {annotation.end}, highlight: {JSON.stringify(annotation.highlight)})</small></SelectedCategory>
       ))}
