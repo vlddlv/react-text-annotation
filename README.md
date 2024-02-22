@@ -1,6 +1,9 @@
-[![Version](https://img.shields.io/badge/Version-0.0.4-orange)](https://www.npmjs.com/package/react-text-annotation) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) [![MIT License](https://img.shields.io/badge/MIT-license-blue)](https://github.com/vlddlv/react-text-annotation/blob/main/LICENSE)
+[![Version](https://img.shields.io/badge/Version-0.0.5-orange)](https://www.npmjs.com/package/react-text-annotation) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) [![MIT License](https://img.shields.io/badge/MIT-license-blue)](https://github.com/vlddlv/react-text-annotation/blob/main/LICENSE)
 
 ### Text Annotator:
+
+This is a React text annotation component designed to be styling framework-agnostic (compatible with Tailwind, Styled Components, etc.) with the aim of achieving mobile friendliness (although it's not there just yet!). The goal is to ensure reliability for production use and cross-browser compatibility. While it's still a work in progress, it's in a fairly solid state.
+
 ![Text Annotator Preview](https://founders.network/aeb5b29c-3a09-4716-a730-ac19d1f04768.gif)
 
 ### Install:
@@ -9,14 +12,42 @@
 npm install react-text-annotation@latest
 ```
 
-### Example of use:
+### Example of use (Next/TS):
 ```javascript
+"use client"
+
+import { useState, useMemo } from 'react';
+import { TextAnnotator } from 'react-text-annotation';
+
+interface Annotation {
+    start: number;
+    end: number;
+    text: string;
+    highlight: Highlight;
+}
+
+interface Highlight {
+    id: string | number;
+    color: string;
+}
+
+export default function Home() {
+  const [annotations, setAnnotations] = useState<Annotation[]>([]);
+  const highlights = useMemo(() => [{ id: 1, color: "#FFAF82", name: 'Vehicle' },{ id: 2, color: "#FFD482", name: 'Airplane' }], []);
+
+  const handleAnnotate = (annotation: Annotation) => {
+    setAnnotations(annotation)
+  }
+
+  return (
       <TextAnnotator
-        value={annotations}
-        onChange={handleAnnotate}
-        content={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc at aliquet pharetra, sem nulla condimentum augue, id pulvinar nunc nisl et mi. Sed auctor, nunc in cursus tincidunt, sem nunc cursus nibh, a cursus mi lorem in libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec eget risus diam. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed ferment'}
-        highlight={{ id: 1, color: "#c5c5c5" }}
+         value={annotations}
+         onChange={handleAnnotate}
+         content={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc at aliquet pharetra, sem nulla condimentum augue, id pulvinar nunc nisl et mi. Sed auctor, nunc in cursus tincidunt, sem nunc cursus nibh, a cursus mi lorem in libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec eget risus diam. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed ferment'}
+         highlight={highlights[0]}
       />
+  );
+}
 ```
 
 ### Properties explained:

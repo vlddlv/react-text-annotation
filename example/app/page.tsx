@@ -18,6 +18,10 @@ const Page = styled.div`
   padding: 20px;
 `;
 
+const Title = styled.h2`
+  font-size: 30px;
+`;
+
 const CategoryButton = styled.button<CategoryButtonProps>`
   width: 150px;
   height: 75px;
@@ -56,13 +60,12 @@ export default function Home() {
   }, []);
 
   const handleAnnotate = (text: any) => {
-    console.log(text)
     setAnnotations(text)
   }
 
   return (
     <Page>
-      <h2 style={{fontSize: "30px"}}>Annotator:</h2>
+      <Title>Annotator:</Title>
       <TextAnnotator
         value={annotations}
         onChange={handleAnnotate}
@@ -70,16 +73,15 @@ export default function Home() {
         highlight={{ id: selectedCategory.id, color: selectedCategory.color }}
       />
 
-      <h2 style={{fontSize: "30px"}}>Current Category</h2>
+      <Title>Current Category</Title>
       {categories.map((category, index) => (
         <CategoryButton backgroundColor={category.color} key={index} onClick={() => handleCategorySelect(category)}>{category.name}</CategoryButton>
       ))}
 
-      <h2 style={{fontSize: "30px"}}>Selected:</h2>
+      <Title>Selected:</Title>
       {annotations.map((annotation, index) => (
         <SelectedCategory key={index} backgroundColor={annotation.highlight.color}><strong>{annotation.text}</strong> <small>(start: {annotation.start}, end: {annotation.end}, highlight: {JSON.stringify(annotation.highlight)})</small></SelectedCategory>
       ))}
-
     </Page>
   );
 }
