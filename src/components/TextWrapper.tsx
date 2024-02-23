@@ -1,7 +1,16 @@
 import React from 'react'
+import styled from '@emotion/styled'
 import { selectionIsEmpty, selectionIsBackwards, splitWithOffsets } from '../functions'
-import { Annotation, TextAnnotatorProps } from '../types'
+import { Annotation, TextAnnotatorProps, SelectionProps } from '../types'
 import Splitter from './Splitter'
+
+const Selection = styled.div<SelectionProps>`
+    & span {
+      &::selection {
+        background-color: ${props => props.backgroundColor};
+      }
+    }
+`
 
 const TextWrapper: React.FC<any> = (props: TextAnnotatorProps<Annotation>) => {
 
@@ -57,11 +66,11 @@ const TextWrapper: React.FC<any> = (props: TextAnnotatorProps<Annotation>) => {
   const splits = splitWithOffsets(content, value)
 
   return (
-    <div onMouseUp={handleMouseUp}>
+    <Selection onMouseUp={handleMouseUp} backgroundColor={props.highlight?.color}>
       {splits.map((split) => (
         <Splitter key={`${split.start}-${split.end}`} {...split} onClick={handleSplitClick} />
       ))}
-    </div>
+    </Selection>
   )
 }
 

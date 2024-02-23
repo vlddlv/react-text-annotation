@@ -1,5 +1,5 @@
 {
-  "name": "example-react",
+  "name": "example",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -21,6 +21,7 @@
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
+    "@emotion/styled": "^11.11.0",
     "tailwindcss": "^3.3.0"
   }
 }

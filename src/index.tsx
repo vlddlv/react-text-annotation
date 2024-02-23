@@ -1,45 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import TextWrapper from './components/TextWrapper';
 import { TextAnnotatorProps, Annotation } from './types'
-import styled from '@emotion/styled'
-
-const Container = styled.div<{ disableSelection: any, highlight: any }>`
-  cursor: auto;
-  flex-grow: 1;
-  padding: 10px;
-  word-spacing: 2px;
-  line-height: 30px;
-  margin-left: -10px;
-  white-space: pre-wrap;
-  height: 100%;
-  userSelect: ${props => props.disableSelection ? 'none' : 'auto'};
-  & mark {
-    padding: 4px;
-    position: relative;
-    cursor: pointer;
-    &:hover:after {
-      font-size: 8px;
-      color: #000;
-      white-space:nowrap;
-      top: 0;
-      line-height: 11px;
-      left: 0;
-      position: absolute;
-      content: 'x';
-      font-weight: bold;
-      z-index: 11;
-      width: 11px;
-      background: white;
-      text-align: center;
-      opacity: 0.5;
-    }
-  }
-  & span {
-    &::selection {
-      background: ${props => props.highlight.color};
-    }
-  }
-`;
 
 const TextAnnotator: React.FC<TextAnnotatorProps<Annotation>> = (props: TextAnnotatorProps<Annotation>) => {
 
@@ -64,9 +25,9 @@ const TextAnnotator: React.FC<TextAnnotatorProps<Annotation>> = (props: TextAnno
     }, [])
 
     return (
-        <Container
-            ref={boxRef}
-            onMouseDown={(e) => {
+        <TextWrapper
+            innerRef={boxRef}
+            onMouseDown={(e: React.MouseEvent) => {
                 e.stopPropagation()
             }}
             onMouseEnter={() => {
@@ -79,13 +40,9 @@ const TextAnnotator: React.FC<TextAnnotatorProps<Annotation>> = (props: TextAnno
                     selection.empty();
                 }
             }}
-            highlight={props.highlight}
-            disableSelection={disableSelection}
-        >
-            <TextWrapper
-                {...props}
-            />
-        </Container>
+            styles={{userSelect: disableSelection ? 'none' : 'auto'}}
+            {...props}
+        />
     )
 }
 
