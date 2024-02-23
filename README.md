@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/Version-0.0.6-orange)](https://www.npmjs.com/package/react-text-annotation) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) [![MIT License](https://img.shields.io/badge/MIT-license-blue)](https://github.com/vlddlv/react-text-annotation/blob/main/LICENSE)
+[![Version](https://img.shields.io/badge/Version-0.0.7-orange)](https://www.npmjs.com/package/react-text-annotation) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) [![MIT License](https://img.shields.io/badge/MIT-license-blue)](https://github.com/vlddlv/react-text-annotation/blob/main/LICENSE)
 
 ### Text Annotator:
 
