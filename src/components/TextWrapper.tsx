@@ -12,7 +12,7 @@ const Selection = styled.div<SelectionProps>`
     }
 `
 
-const TextWrapper: React.FC<any> = (props: TextAnnotatorProps<Annotation>) => {
+const TextWrapper: React.FC<TextAnnotatorProps<Annotation>> = (props: TextAnnotatorProps<Annotation>) => {
 
   const handleMouseUp = () => {
     if (!props.onChange) return
@@ -42,11 +42,11 @@ const TextWrapper: React.FC<any> = (props: TextAnnotatorProps<Annotation>) => {
     }
 
     if (selectionIsBackwards(selection)) {
-      ;[start, end] = [end, start]
+      [start, end] = [end, start]
     }
     
     const annotations = [...props.value, { start, end, text: content.slice(start, end), highlight: props.highlight } as Annotation]
-    const uniqueAnnnotation = annotations.filter((a: any, i: any) => annotations.findIndex((s: any) => a.start === s.start) === i)
+    const uniqueAnnnotation = annotations.filter((a: Annotation, i: number) => annotations.findIndex((s: Annotation) => a.start === s.start) === i)
     props.onChange(uniqueAnnnotation)
 
     const sel = window.getSelection();

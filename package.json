@@ -3,6 +3,7 @@
   "version": "0.0.7",
   "description": "Text annotation component for React",
   "main": "./lib/index",
+  "type": "module",
   "types": "./lib/types.d.ts",
   "files": [
     "./lib/"
@@ -10,6 +11,7 @@
   "scripts": {
     "start": "tsc --watch",
     "build": "tsc",
+    "lint": "npx eslint ./src/ --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vladimir Kokovic",
@@ -40,11 +42,13 @@
     "@types/lodash.sortby": "^4.7.9",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "typescript": "^5.1.6"
+    "eslint": "^8.56.0",
+    "typescript": "^5.1.6",
+    "typescript-eslint": "^7.0.2"
   },
   "peerDependencies": {
+    "@emotion/styled": "^11.11.0",
     "react": "^18",
-    "react-dom": "^18",
-    "@emotion/styled": "^11.11.0"
+    "react-dom": "^18"
   }
 }
