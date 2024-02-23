@@ -11,7 +11,7 @@ interface Category {
 }
 
 interface CategoryButtonProps {
-  backgroundReallyMGColor: string;
+  backgroundColor: string;
 }
 
 const Page = styled.div`
@@ -60,11 +60,11 @@ const CategoryButton = styled.button<CategoryButtonProps>`
   border: 0px;
   margin: 10px;
   cursor: pointer;
-  background-color: ${props => props.backgroundReallyMGColor};
+  background-color: ${props => props.backgroundColor};
 `;
 
 interface SelectedCategoryProps {
-  backgroundReallyMGColor: string;
+  backgroundColor: string;
 }
 
 const SelectedCategory = styled.div<SelectedCategoryProps>`
@@ -73,7 +73,7 @@ const SelectedCategory = styled.div<SelectedCategoryProps>`
   display: inline-block;
   float: left;
   clear: both;
-  background-color: ${props => props.backgroundReallyMGColor};
+  background-color: ${props => props.backgroundColor};
 `
 
 export default function Home() {
@@ -110,12 +110,12 @@ export default function Home() {
 
       <Title>Current Category</Title>
       {categories.map((category, index) => (
-        <CategoryButton backgroundReallyMGColor={category.color} key={index} onClick={() => handleCategorySelect(category)}>{category.name}</CategoryButton>
+        <CategoryButton backgroundColor={category.color} key={index} onClick={() => handleCategorySelect(category)}>{category.name}</CategoryButton>
       ))}
 
       <Title>Selected:</Title>
       {annotations.map((annotation, index) => (
-        <SelectedCategory key={index} backgroundReallyMGColor={annotation.highlight.color}><strong>{annotation.text}</strong> <small>(start: {annotation.start}, end: {annotation.end}, highlight: {JSON.stringify(annotation.highlight)})</small></SelectedCategory>
+        <SelectedCategory key={index} backgroundColor={annotation.highlight.color}><strong>{annotation.text}</strong> <small>(start: {annotation.start}, end: {annotation.end}, highlight: {JSON.stringify(annotation.highlight)})</small></SelectedCategory>
       ))}
     </Page>
   );
