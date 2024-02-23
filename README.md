@@ -12,24 +12,42 @@ This is a React text annotation component designed to be styling framework-agnos
 npm install react-text-annotation@latest
 ```
 
-### Example of use (Next/TS):
+### Example of use (TS/Styled Component):
 ```javascript
-"use client"
-
 import { useState, useMemo } from 'react';
-import { TextAnnotator } from 'react-text-annotation';
+import { TextAnnotator, Annotation } from 'react-text-annotation';
 
-interface Annotation {
-    start: number;
-    end: number;
-    text: string;
-    highlight: Highlight;
-}
-
-interface Highlight {
-    id: string | number;
-    color: string;
-}
+const Container = styled.div`
+  cursor: auto;
+  flex-grow: 1;
+  padding: 10px;
+  word-spacing: 2px;
+  line-height: 30px;
+  margin-left: -10px;
+  white-space: pre-wrap;
+  height: 100%;
+  & mark {
+    padding: 4px;
+    position: relative;
+    cursor: pointer;
+    &:hover:after {
+      font-size: 8px;
+      color: #000;
+      white-space:nowrap;
+      top: 0;
+      line-height: 11px;
+      left: 0;
+      position: absolute;
+      content: 'x';
+      font-weight: bold;
+      z-index: 11;
+      width: 11px;
+      background: white;
+      text-align: center;
+      opacity: 0.5;
+    }
+  }
+`;
 
 export default function Home() {
   const [annotations, setAnnotations] = useState<Annotation[]>([]);
@@ -40,12 +58,14 @@ export default function Home() {
   }
 
   return (
-      <TextAnnotator
-         value={annotations}
-         onChange={handleAnnotate}
-         content={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc at aliquet pharetra, sem nulla condimentum augue, id pulvinar nunc nisl et mi. Sed auctor, nunc in cursus tincidunt, sem nunc cursus nibh, a cursus mi lorem in libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec eget risus diam. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed ferment'}
-         highlight={highlights[0]}
-      />
+    <Container>
+        <TextAnnotator
+          value={annotations}
+          onChange={handleAnnotate}
+          content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc at aliquet pharetra, sem nulla condimentum augue, id pulvinar nunc nisl et mi. Sed auctor, nunc in cursus tincidunt, sem nunc cursus nibh, a cursus mi lorem in libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec eget risus diam. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed ferment"}
+          highlight={{ id: 0, color: "#C0C0C0" }}
+        />
+    </Container>
   );
 }
 ```

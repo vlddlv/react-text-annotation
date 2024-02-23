@@ -3,7 +3,7 @@
   "version": "0.0.6",
   "description": "Text annotation component for React",
   "main": "./lib/index",
-  "types": "./lib/declare_module.d.ts",
+  "types": "./lib/types.d.ts",
   "files": [
     "./lib/"
   ],

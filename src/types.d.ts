@@ -1,3 +1,4 @@
+declare module 'react-text-annotation';
 
 export interface MarkProps {
     key: string

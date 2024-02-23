@@ -2,11 +2,9 @@
 
 import { useState, useCallback, useMemo } from 'react';
 import styled from '@emotion/styled'
-import { TextAnnotator } from 'react-text-annotation';
+import { TextAnnotator, Annotation, Highlight } from 'react-text-annotation';
 
-interface Category {
-  id: number;
-  color: string;
+interface Category extends Highlight {
   name: string;
 }
 
@@ -85,14 +83,14 @@ export default function Home() {
   { id: 5, color: "#846EF3", name: 'Forbidden' },
   { id: 6, color: "#C590DE", name: 'Good' },], []);
   const [selectedCategory, setSelectedCategory] = useState<Category>(categories[0]);
-  const [annotations, setAnnotations] = useState<any[]>([]);
+  const [annotations, setAnnotations] = useState<Annotation[]>([]);
 
   const handleCategorySelect = useCallback((category: Category) => {
     setSelectedCategory(category);
   }, []);
 
-  const handleAnnotate = (text: any) => {
-    setAnnotations(text)
+  const handleAnnotate = (annotation: Annotation[]) => {
+    setAnnotations(annotation)
   }
 
   return (
