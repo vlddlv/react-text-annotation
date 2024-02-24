@@ -1,21 +1,51 @@
-[![Version](https://img.shields.io/badge/Version-0.0.7-orange)](https://www.npmjs.com/package/react-text-annotation) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) [![MIT License](https://img.shields.io/badge/MIT-license-blue)](https://github.com/vlddlv/react-text-annotation/blob/main/LICENSE)
+[![Version](https://img.shields.io/badge/Version-0.0.8-orange)](https://www.npmjs.com/package/react-text-annotation) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) [![MIT License](https://img.shields.io/badge/MIT-license-blue)](https://github.com/vlddlv/react-text-annotation/blob/main/LICENSE)
+
 
 ### Text Annotator:
 
-This is a React text annotation component designed to be styling framework-agnostic (compatible with Tailwind, Styled Components, etc.) with the aim of achieving mobile friendliness (although it's not there just yet!). The goal is to ensure reliability for production use and cross-browser compatibility. While it's still a work in progress, it's in a fairly solid state.
+This is a **React Text Annotation** component, written in **TypeScript** and supporting **JavaScript** implementation. It's designed to be styling framework-agnostic (compatible with **Tailwind**, **Styled Components**, etc.), with the aim of ensuring reliability for production use and cross-browser compatibility, easy to use, covering many use cases.
 
 ![Text Annotator Preview](https://founders.network/aeb5b29c-3a09-4716-a730-ac19d1f04768.gif)
 
 ### Install:
 
 ```bash
-npm install react-text-annotation@latest
+npm i react-text-annotation@latest
+```
+
+### Example of use (JS/Tailwind):
+```javascript
+import { useState, useMemo } from 'react';
+import { TextAnnotator } from 'react-text-annotation';
+
+export default function Home() {
+  const categories = useMemo(() => [{ id: 0, color: "#FF8282", name: 'Not Allowed' }, { id: 1, color: "#FFAF82", name: 'Vehicle' }], []);
+  
+  const [annotations, setAnnotations] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+
+  const handleAnnotate = (annotation) => {
+    setAnnotations(annotation)
+  }
+
+  return (
+      <TextAnnotator
+        containerClassNames="cursor-auto flex-grow p-2.5 space-x-[2] [word-spacing:2px] leading-[30px] -ml-2.5 whitespace-pre-wrap h-full"
+        markerClassName="p-1 relative cursor-pointer hover:after:[content:'x'] hover:after:font-bold hover:after:text-xs hover:after:text-black hover:after:whitespace-nowrap hover:after:top-0 hover:after:leading-3 hover:after:left-0 hover:after:absolute hover:after:z-10 hover:after:w-3 hover:after:bg-white hover:after:text-center hover:after:opacity-50"
+        value={annotations}
+        onChange={handleAnnotate}
+        content={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc at aliquet pharetra, sem nulla condimentum augue, id pulvinar nunc nisl et mi. Sed auctor, nunc in cursus tincidunt, sem nunc cursus nibh, a cursus mi lorem in libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec eget risus diam. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed ferment'}
+        category={selectedCategory}
+      />
+  );
+}
+
 ```
 
 ### Example of use (TS/Styled Component):
 ```javascript
 import { useState, useMemo } from 'react';
-import { TextAnnotator, Annotation } from 'react-text-annotation';
+import { TextAnnotator, Annotation, Category } from 'react-text-annotation';
 
 const Container = styled.div`
   cursor: auto;
@@ -50,8 +80,10 @@ const Container = styled.div`
 `;
 
 export default function Home() {
+  const categories = useMemo(() => [{ id: 1, color: "#FFAF82", name: 'Vehicle' },{ id: 2, color: "#FFD482", name: 'Airplane' }], []);
+  
   const [annotations, setAnnotations] = useState<Annotation[]>([]);
-  const highlights = useMemo(() => [{ id: 1, color: "#FFAF82", name: 'Vehicle' },{ id: 2, color: "#FFD482", name: 'Airplane' }], []);
+  const [selectedCategory, setSelectedCategory] = useState<Category>(categories[0]);
 
   const handleAnnotate = (annotation: Annotation) => {
     setAnnotations(annotation)
@@ -63,7 +95,7 @@ export default function Home() {
           value={annotations}
           onChange={handleAnnotate}
           content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc at aliquet pharetra, sem nulla condimentum augue, id pulvinar nunc nisl et mi. Sed auctor, nunc in cursus tincidunt, sem nunc cursus nibh, a cursus mi lorem in libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec eget risus diam. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed ferment"}
-          highlight={{ id: 0, color: "#C0C0C0" }}
+          category={selectedCategory}
         />
     </Container>
   );
@@ -71,12 +103,14 @@ export default function Home() {
 ```
 
 ### Properties explained:
-| Property                          | Description |
-| ------------------------------- | ----------- |
-| value                           | List of currently annotated objects (see annotation object below) |
-| onChange                        | This method will be triggered when the users highlights a new text        |
-| content                        | This is the content that needs to be annotated        |
-| highlight                        | This is the current highlight object that will be used to annotate text (see hightlight object below)        |
+| Property                          | Type | Description |
+| ------------------------------- | ----------- |----------- |
+| value                           |**Required**| List of currently annotated objects (see annotation object below) |
+| onChange                        |**Required**| This method will be triggered when the users highlights a new text        |
+| content                        |**Required**|This is the content that needs to be annotated        |
+| highlight                        |**Required**| This is the current highlight object that will be used to annotate text (see hightlight object below)        |
+| containerClassNames       |Optional| List of classes to apply styles to container component |
+| markerClassName           |Optional| List of classes to apply styles to marker component |
 
 
 ### Annotation Object:
@@ -103,14 +137,19 @@ This object is used to determine how to lebel the current selection. If you want
 
 
 ### To do
-- [ ] Add support for tailwind/styled components
 - [ ] Add component tests
+- [ ] Expose events (onMouseDown, onMouseEnter, onMouseLeave)
 - [ ] Publish example to GitHub pages
 - [ ] Improve documentation
-- [ ] Support mobile
+
+### Contribution
+
+Your contributions, whether through [creating issues](https://github.com/vlddlv/react-text-annotation/issues/new) or submitting pull requests, are invaluable to me. Rest assured, I'll be actively engaged and readily available to provide support and guidance every step of the way. Let's collaborate, innovate, and build something amazing together! Remember, no contribution is too small – every effort counts. Looking forward to seeing your ideas and contributions flourish! 🚀✨
 
 ### Credits
 
-This component has been lounging around on my computer for what feels like centuries, like a relic from a bygone era. It was originally inspired by [this project](https://github.com/mcamac/react-text-annotate), but I had to give it a serious makeover to bring it up to production standards that we were looking for. I've been promising myself I'd set it free into the wild one day, and guess what? That day has finally arrived! It's out in the world now, ready to shine!
+This component has been gathering dust on my computer for what feels like an eternity. Originally inspired by Martin Camacho's [react-text-annotate](https://github.com/mcamac/react-text-annotate) project, which seems to be no longer maintained, it still serves as the foundation. However, I've given it a makeover to meet the standards we were aiming for.
+
+My motivation behind building this component was to create an annotation tool that is production-ready, thoroughly tested, and ready for immediate use. I've been promising myself I'd set it free into the wild one day, and guess what? That day has finally arrived! It's out in the world now, ready to shine!
 
 [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)

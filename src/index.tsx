@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import TextWrapper from './components/TextWrapper';
-import { TextAnnotatorProps, Annotation } from './types'
+import { TextAnnotatorProps, TextWrapperProps, Annotation } from './types'
 
-const TextAnnotator: React.FC<TextAnnotatorProps<Annotation>> = (props: TextAnnotatorProps<Annotation>) => {
+const TextAnnotator: React.FC<TextWrapperProps<Annotation>> = (props: TextWrapperProps<Annotation>) => {
 
     const [disableSelection, setDisableSelection] = useState(true)
     const boxRef = useRef<HTMLInputElement | null>(null)
@@ -24,8 +24,14 @@ const TextAnnotator: React.FC<TextAnnotatorProps<Annotation>> = (props: TextAnno
         }
     }, [])
 
+    const Container: React.FC<TextAnnotatorProps> = (props: TextAnnotatorProps) => {
+        return <>
+            {props.children}
+        </>
+    }
+
     return (
-        <TextWrapper
+        <Container
             innerRef={boxRef}
             onMouseDown={(e: React.MouseEvent) => {
                 e.stopPropagation()
@@ -40,11 +46,11 @@ const TextAnnotator: React.FC<TextAnnotatorProps<Annotation>> = (props: TextAnno
                     selection.empty();
                 }
             }}
-            styles={{userSelect: disableSelection ? 'none' : 'auto'}}
-            {...props}
-        />
+            styles={{ userSelect: disableSelection ? 'none' : 'auto' }}
+        >
+            <TextWrapper {...props} />
+        </Container>
     )
 }
 
-export type { Annotation, Highlight } from './types';
 export { TextAnnotator }

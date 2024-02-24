@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { selectionIsEmpty, selectionIsBackwards, splitWithOffsets } from '../functions'
-import { Annotation, TextAnnotatorProps, SelectionProps } from '../types'
+import { Annotation, TextWrapperProps, SelectionProps } from '../types'
 import Splitter from './Splitter'
 
 const Selection = styled.div<SelectionProps>`
@@ -12,7 +12,7 @@ const Selection = styled.div<SelectionProps>`
     }
 `
 
-const TextWrapper: React.FC<TextAnnotatorProps<Annotation>> = (props: TextAnnotatorProps<Annotation>) => {
+const TextWrapper: React.FC<TextWrapperProps<Annotation>> = (props: TextWrapperProps<Annotation>) => {
 
   const handleMouseUp = () => {
     if (!props.onChange) return
@@ -45,7 +45,7 @@ const TextWrapper: React.FC<TextAnnotatorProps<Annotation>> = (props: TextAnnota
       [start, end] = [end, start]
     }
     
-    const annotations = [...props.value, { start, end, text: content.slice(start, end), highlight: props.highlight } as Annotation]
+    const annotations = [...props.value, { start, end, text: content.slice(start, end), category: props.category } as Annotation]
     const uniqueAnnnotation = annotations.filter((a: Annotation, i: number) => annotations.findIndex((s: Annotation) => a.start === s.start) === i)
     props.onChange(uniqueAnnnotation)
 
@@ -62,13 +62,13 @@ const TextWrapper: React.FC<TextAnnotatorProps<Annotation>> = (props: TextAnnota
     }
   }
 
-  const { content, value } = props
+  const { content, value, markerClassName } = props
   const splits = splitWithOffsets(content, value)
 
   return (
-    <Selection onMouseUp={handleMouseUp} backgroundColor={props.highlight?.color}>
+    <Selection onMouseUp={handleMouseUp} backgroundColor={props.category?.color} className={props.containerClassNames}>
       {splits.map((split) => (
-        <Splitter key={`${split.start}-${split.end}`} {...split} onClick={handleSplitClick} />
+        <Splitter key={`${split.start}-${split.end}`} {...split} onClick={handleSplitClick} markerClassName={markerClassName}/>
       ))}
     </Selection>
   )

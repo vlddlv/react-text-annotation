@@ -2,11 +2,7 @@
 
 import { useState, useCallback, useMemo } from 'react';
 import styled from '@emotion/styled'
-import { TextAnnotator, Annotation, Highlight } from 'react-text-annotation';
-
-interface Category extends Highlight {
-  name: string;
-}
+import { TextAnnotator } from 'react-text-annotation';
 
 interface CategoryButtonProps {
   backgroundColor: string;
@@ -81,7 +77,7 @@ export default function Home() {
   { id: 3, color: "#A9D6AE", name: 'Industry' },
   { id: 4, color: "#829DFF", name: 'Document' },
   { id: 5, color: "#846EF3", name: 'Forbidden' },
-  { id: 6, color: "#C590DE", name: 'Good' },], []);
+  { id: 6, color: "#C590DE", name: 'Good' }], []);
   const [selectedCategory, setSelectedCategory] = useState<Category>(categories[0]);
   const [annotations, setAnnotations] = useState<Annotation[]>([]);
 
@@ -102,7 +98,7 @@ export default function Home() {
           value={annotations}
           onChange={handleAnnotate}
           content={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc at aliquet pharetra, sem nulla condimentum augue, id pulvinar nunc nisl et mi. Sed auctor, nunc in cursus tincidunt, sem nunc cursus nibh, a cursus mi lorem in libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec eget risus diam. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed ferment'}
-          highlight={{ id: selectedCategory.id, color: selectedCategory.color }}
+          category={selectedCategory}
         />
       </Container>
 
@@ -113,7 +109,7 @@ export default function Home() {
 
       <Title>Selected:</Title>
       {annotations.map((annotation, index) => (
-        <SelectedCategory key={index} backgroundColor={annotation.highlight.color}><strong>{annotation.text}</strong> <small>(start: {annotation.start}, end: {annotation.end}, highlight: {JSON.stringify(annotation.highlight)})</small></SelectedCategory>
+        <SelectedCategory key={index} backgroundColor={annotation.category.color}><strong>{annotation.text}</strong> <small>(start: {annotation.start}, end: {annotation.end}, highlight: {JSON.stringify(annotation.highlight)})</small></SelectedCategory>
       ))}
     </Page>
   );

@@ -32,7 +32,7 @@ export const splitWithOffsets = (text: string, offsets: { start: number; end: nu
   return splits
 }
 
-export const splitTokensWithOffsets = (text: string, offsets: { start: number; end: number }[]) => {
+export const splitTokensWithOffsets = (text: [], offsets: { start: number; end: number }[]) => {
   let lastEnd = 0
   const splits: Split[] = []
 

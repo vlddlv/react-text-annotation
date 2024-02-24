@@ -1,46 +1,58 @@
 declare module 'react-text-annotation';
 
 export interface MarkProps {
-    key: string
-    content: string
-    start: number
-    end: number
-    highlight?: Highlight
-    onClick: ({ start, end }: { start: number, end: number }) => void
+    key: string;
+    content: string;
+    start: number;
+    end: number;
+    category?: Category;
+    markerClassName?: string;
+    onClick: ({ start, end }: { start: number, end: number }) => void;
 }
 
 export interface SplitterProps extends MarkProps {
-    mark?: boolean
+    mark?: boolean;
 }
 
 export interface SelectionProps {
-    backgroundColor?: string
+    backgroundColor?: string;
 }
 
 export interface Split {
-    start: number
-    end: number
-    content: string
-    i?: number
-    mark?: boolean
+    start: number;
+    end: number;
+    content: string;
+    i?: number;
+    mark?: boolean;
 }
 
 export interface Annotation {
     start: number;
     end: number;
     text: string;
-    highlight: Highlight;
+    category: Category;
 }
 
-export interface Highlight {
+export interface Category {
     id: string | number;
     color: string;
 }
 
-export type TextAnnotatorProps<T> = {
-    content: string;
+export type TextAnnotatorProps = {
+    innerRef: React.RefObject<HTMLElement>;
+    onMouseDown: (e: React.MouseEvent) => void;
+    onMouseEnter: () => void;
+    onMouseLeave: () => void;
+    styles: React.CSSProperties;
+    children: React.ReactNode;
+}
+
+export type TextWrapperProps<T> = {
+    content: string;    
     value: T[];
     onChange: (value: T[]) => void;
-    highlight: Highlight;
-    disableSelection?: boolean
+    category: Category;
+    disableSelection?: boolean;
+    containerClassNames?: string;
+    markerClassName?: string;
 }
