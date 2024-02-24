@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/Version-0.0.8-orange)](https://www.npmjs.com/package/react-text-annotation) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) [![MIT License](https://img.shields.io/badge/MIT-license-blue)](https://github.com/vlddlv/react-text-annotation/blob/main/LICENSE)
+[![Version](https://img.shields.io/badge/Version-0.0.9-orange)](https://www.npmjs.com/package/react-text-annotation) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) [![MIT License](https://img.shields.io/badge/MIT-license-blue)](https://github.com/vlddlv/react-text-annotation/blob/main/LICENSE)
 
 
 ### Text Annotator:
@@ -106,9 +106,9 @@ export default function Home() {
 | Property                          | Type | Description |
 | ------------------------------- | ----------- |----------- |
 | value                           |**Required**| List of currently annotated objects (see annotation object below) |
-| onChange                        |**Required**| This method will be triggered when the users highlights a new text        |
+| onChange                        |**Required**| This method will be triggered when the users labels a new text        |
 | content                        |**Required**|This is the content that needs to be annotated        |
-| highlight                        |**Required**| This is the current highlight object that will be used to annotate text (see hightlight object below)        |
+| category                        |**Required**| This is the current category object that will be used to annotate text (see category object below)        |
 | containerClassNames       |Optional| List of classes to apply styles to container component |
 | markerClassName           |Optional| List of classes to apply styles to marker component |
 
@@ -116,16 +116,16 @@ export default function Home() {
 ### Annotation Object:
 This object is used to collect all the selected annotations from the text. 
 ```javascript
-{ start: 0, end: 0, text: "", highlight: {id: 0, color: ""} }
+{ start: 0, end: 0, text: "", category: {id: 0, color: ""} }
 ```
 | Property                          | Description |
 | ------------------------------- | ----------- |
 | start                           | This is the number of beginning of cursor position where the text selection started |
 | end                        | This is the number of end of cursor position where the text selection ended        |
 | text                        | This is the actual text included in the selection        |
-| highlight                        | This is the highlight object (see hightlight object below)        |
+| category                        | This is the category object (see category object below)        |
 
-### Highlight Object:
+### Category Object:
 This object is used to determine how to lebel the current selection. If you want to label your text as "elephant", you should tell the text annotator that you are labeling elephants. On top of that, it is important for the annotator to understand what is the identifier for elephants so you can later map the annotations with your internal data. Therefore, the object contains the following:
 ```javascript
 {id: 0, color: ""}
@@ -137,6 +137,7 @@ This object is used to determine how to lebel the current selection. If you want
 
 
 ### To do
+- [ ] Update GIF animation
 - [ ] Add component tests
 - [ ] Expose events (onMouseDown, onMouseEnter, onMouseLeave)
 - [ ] Publish example to GitHub pages

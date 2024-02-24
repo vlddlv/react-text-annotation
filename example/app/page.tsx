@@ -109,7 +109,7 @@ export default function Home() {
 
       <Title>Selected:</Title>
       {annotations.map((annotation, index) => (
-        <SelectedCategory key={index} backgroundColor={annotation.category.color}><strong>{annotation.text}</strong> <small>(start: {annotation.start}, end: {annotation.end}, highlight: {JSON.stringify(annotation.highlight)})</small></SelectedCategory>
+        <SelectedCategory key={index} backgroundColor={annotation.category.color}><strong>{annotation.text}</strong> <small>(start: {annotation.start}, end: {annotation.end}, category: {JSON.stringify(annotation.category)})</small></SelectedCategory>
       ))}
     </Page>
   );
