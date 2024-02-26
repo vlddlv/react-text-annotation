@@ -12,7 +12,8 @@
     "start": "tsc --watch",
     "build": "tsc",
     "lint": "npx eslint ./src/ --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "author": "Vladimir Kokovic",
   "license": "MIT",
@@ -34,15 +35,26 @@
     "react text annotator",
     "react text annotation"
   ],
+  "jest": {
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.(ts|tsx|js|jsx)$": "ts-jest"
+    }
+  },
   "dependencies": {
     "lodash.sortby": "^4.7.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
     "@types/jest": "^29.5.12",
     "@types/lodash.sortby": "^4.7.9",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.1.2",
     "typescript": "^5.1.6",
     "typescript-eslint": "^7.0.2"
   },
