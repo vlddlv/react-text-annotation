@@ -1,19 +1,19 @@
 [![Version](https://img.shields.io/badge/Version-0.0.9-orange)](https://www.npmjs.com/package/react-text-annotation) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) [![MIT License](https://img.shields.io/badge/MIT-license-blue)](https://github.com/vlddlv/react-text-annotation/blob/main/LICENSE)
 
 
-### Text Annotator:
+# Text Annotator:
 
 This is a **React Text Annotation** component, written in **TypeScript** and supporting **JavaScript** implementation. It's designed to be styling framework-agnostic (compatible with **Tailwind**, **Styled Components**, etc.), with the aim of ensuring reliability for production use and cross-browser compatibility, easy to use, covering many use cases.
 
 ![Text Annotator Preview](https://founders.network/aeb5b29c-3a09-4716-a730-ac19d1f04768.gif)
 
-### Install:
+# Install:
 
 ```bash
 npm i react-text-annotation@latest
 ```
 
-### Example of use (JS/Tailwind):
+# Example of use (JS/Tailwind):
 ```javascript
 import { useState, useMemo } from 'react';
 import { TextAnnotator } from 'react-text-annotation';
@@ -42,7 +42,7 @@ export default function Home() {
 
 ```
 
-### Example of use (TS/Styled Component):
+# Example of use (TS/Styled Component):
 ```javascript
 import { useState, useMemo } from 'react';
 import { TextAnnotator, Annotation, Category } from 'react-text-annotation';
@@ -102,7 +102,7 @@ export default function Home() {
 }
 ```
 
-### Properties explained:
+# Properties explained:
 | Property                          | Type | Description |
 | ------------------------------- | ----------- |----------- |
 | value                           |**Required**| List of currently annotated objects (see annotation object below) |
@@ -113,7 +113,7 @@ export default function Home() {
 | markerClassName           |Optional| List of classes to apply styles to marker component |
 
 
-### Annotation Object:
+# Annotation Object:
 This object is used to collect all the selected annotations from the text. 
 ```javascript
 { start: 0, end: 0, text: "", category: {id: 0, color: ""} }
@@ -125,7 +125,7 @@ This object is used to collect all the selected annotations from the text.
 | text                        | This is the actual text included in the selection        |
 | category                        | This is the category object (see category object below)        |
 
-### Category Object:
+# Category Object:
 This object is used to determine how to lebel the current selection. If you want to label your text as "elephant", you should tell the text annotator that you are labeling elephants. On top of that, it is important for the annotator to understand what is the identifier for elephants so you can later map the annotations with your internal data. Therefore, the object contains the following:
 ```javascript
 {id: 0, color: ""}
@@ -136,20 +136,20 @@ This object is used to determine how to lebel the current selection. If you want
 | color                        | This is a HEX color that you want to represent the label with        |
 
 
-### To do
+# To do
 - [ ] Update GIF animation
 - [ ] Add component tests
 - [ ] Expose events (onMouseDown, onMouseEnter, onMouseLeave)
 - [ ] Publish example to GitHub pages
 - [ ] Improve documentation
 
-### Contribution
+# Contribution
 
 Your contributions, whether through [creating issues](https://github.com/vlddlv/react-text-annotation/issues/new) or submitting pull requests, are invaluable to me. Rest assured, I'll be actively engaged and readily available to provide support and guidance every step of the way. Let's collaborate, innovate, and build something amazing together! Remember, no contribution is too small – every effort counts. Looking forward to seeing your ideas and contributions flourish! 🚀✨
 
-### Credits
+# Credits
 
-This component has been gathering dust on my computer for what feels like an eternity. Originally inspired by Martin Camacho's [react-text-annotate](https://github.com/mcamac/react-text-annotate) project, which seems to be no longer maintained, it still serves as the foundation. However, I've given it a makeover to meet the standards we were aiming for.
+Originally inspired by Martin Camacho's [react-text-annotate](https://github.com/mcamac/react-text-annotate) and served as the foundation of the component while I was working on [Human Lambdas](https://github.com/Human-Lambdas/human-lambdas) project, neither of which are currently maintained. However, I've given it a makeover to meet the standards we were aiming for.
 
 My motivation behind building this component was to create an annotation tool that is production-ready, thoroughly tested, and ready for immediate use. I've been promising myself I'd set it free into the wild one day, and guess what? That day has finally arrived! It's out in the world now, ready to shine!
 
