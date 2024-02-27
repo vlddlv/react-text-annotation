@@ -4,11 +4,16 @@ import TextWrapper from './TextWrapper';
 
 describe('TextWrapper', () => {
 
+  type Category = {
+    id: number;
+    color: string;
+  }
+
   let mockProps: {
     content: string;
-    value: any[];
-    onChange: jest.Mock<{}, []>;
-    category: { id: number; color: string };
+    value: { start: number; end: number; text: string; category: Category }[];
+    onChange: jest.Mock<[], []>;
+    category: Category;
     markerClassName: string;
   };
   let mockSelection: Partial<Selection>;
@@ -87,7 +92,7 @@ describe('TextWrapper', () => {
       anchorNode: {
         parentElement: { getAttribute: () => '0' },
         compareDocumentPosition: () => 0,
-      } as any,
+      } as unknown as Node,
       focusNode: { parentElement: { getAttribute: () => '4' } } as unknown as Node,
       anchorOffset: 8,
       focusOffset: 0,
