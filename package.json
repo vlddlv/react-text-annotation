@@ -12,8 +12,7 @@
     "start": "tsc --watch",
     "build": "tsc",
     "lint": "npx eslint ./src/ --fix",
-    "test": "jest",
-    "coverage": "jest --coverage"
+    "test": "jest --coverage"
   },
   "author": "Vladimir Kokovic",
   "license": "MIT",
