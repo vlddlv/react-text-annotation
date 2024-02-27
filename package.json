@@ -1,6 +1,6 @@
 {
   "name": "react-text-annotation",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Text annotation component for React",
   "main": "./lib/index",
   "type": "module",
@@ -12,8 +12,7 @@
     "start": "tsc --watch",
     "build": "tsc",
     "lint": "npx eslint ./src/ --fix",
-    "test": "jest",
-    "coverage": "jest --coverage"
+    "test": "jest --coverage"
   },
   "author": "Vladimir Kokovic",
   "license": "MIT",
