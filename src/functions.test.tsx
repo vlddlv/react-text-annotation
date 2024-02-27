@@ -1,8 +1,6 @@
 
 import { splitTokensWithOffsets, selectionIsBackwards, splitWithOffsets } from './functions';
 
-
-
 describe('splitTokensWithOffsets', () => {
     it('splits tokens with offsets', () => {
         const text = ['Hello', 'world'];
