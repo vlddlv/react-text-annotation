@@ -1,7 +1,7 @@
 [![Version](https://img.shields.io/badge/Version-0.1.2-orange)](https://www.npmjs.com/package/react-text-annotation) [![Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg)](https://www.npmjs.com/package/react-text-annotation) [![MIT License](https://img.shields.io/badge/MIT-license-blue)](https://github.com/vlddlv/react-text-annotation/blob/main/LICENSE) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) 
 
 
-# Text Annotator:
+# Text Annotator ([Live Demo](https://vlddlv.github.io/react-text-annotation/)):
 
 This is a **React Text Annotation** component, written in **TypeScript** and supporting **JavaScript** implementation. It's designed to be styling framework-agnostic (compatible with **Tailwind**, **Styled Components**, etc.), with the aim of ensuring reliability for production use and cross-browser compatibility, easy to use, covering many use cases.
 
