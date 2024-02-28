@@ -1,11 +1,10 @@
-import sortBy from 'lodash.sortby'
 import { Split } from './types'
 
 export const splitWithOffsets = (text: string, offsets: { start: number; end: number }[]) => {
   let lastEnd = 0
   const splits: Split[] = []
 
-  for (const offset of sortBy(offsets, (o) => o.start)) {
+  for (const offset of [...offsets].sort((a, b) => a.start - b.start)) {
     const { start, end } = offset
     if (lastEnd < start) {
       splits.push({
@@ -36,7 +35,7 @@ export const splitTokensWithOffsets = (text: string[], offsets: { start: number;
   let lastEnd = 0
   const splits: Split[] = []
 
-  for (const offset of sortBy(offsets, (o) => o.start)) {
+  for (const offset of [...offsets].sort((a, b) => a.start - b.start)) {
     const { start, end } = offset
     if (lastEnd < start) {
       for (let i = lastEnd; i < start; i++) {

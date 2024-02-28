@@ -56,3 +56,5 @@ export type TextWrapperProps<T> = {
     containerClassNames?: string;
     markerClassName?: string;
 }
+
+export { TextAnnotator } from './src/index';

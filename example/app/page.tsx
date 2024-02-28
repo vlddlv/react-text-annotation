@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useMemo } from 'react';
 import styled from '@emotion/styled'
-import { TextAnnotator } from 'react-text-annotation';
+import { TextAnnotator, Annotation, Category } from 'react-text-annotation';
 
 interface CategoryButtonProps {
   backgroundColor: string;
