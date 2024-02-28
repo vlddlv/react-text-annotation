@@ -1,4 +1,4 @@
-import { Split } from './types'
+import { Split } from '../index'
 
 export const splitWithOffsets = (text: string, offsets: { start: number; end: number }[]) => {
   let lastEnd = 0

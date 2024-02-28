@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { selectionIsEmpty, selectionIsBackwards, splitWithOffsets } from '../functions'
-import { Annotation, TextWrapperProps, SelectionProps } from '../types'
+import { Annotation, TextWrapperProps, SelectionProps } from '../../index'
 import Splitter from './Splitter'
 
 const Selection = styled.div<SelectionProps>`
