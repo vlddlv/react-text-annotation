@@ -4,15 +4,15 @@
 # Text Annotator:
 
 This is a **React Text Annotation** component, written in **TypeScript** and supporting **JavaScript** implementation. It's designed to be styling framework-agnostic (compatible with **Tailwind**, **Styled Components**, etc.), with the aim of ensuring reliability for production use and cross-browser compatibility, easy to use, covering many use cases.
-#
+##
 ![Text Annotator Preview](https://founders.network/351fba16-b74c-485a-a8f9-8fb198ac4a9f.gif)
-#
+##
 # Install:
 
 ```bash
 npm i react-text-annotation@latest
 ```
-#
+##
 # Example of use (JS/Tailwind):
 ```javascript
 import { useState, useMemo } from 'react';
@@ -41,7 +41,7 @@ export default function Home() {
 }
 
 ```
-#
+##
 # Example of use (TS/Styled Component):
 ```javascript
 import { useState, useMemo } from 'react';
@@ -102,7 +102,7 @@ export default function Home() {
 }
 ```
 
-#
+##
 # Properties explained:
 | Property                          | Type | Description |
 | ------------------------------- | ----------- |----------- |
@@ -113,8 +113,8 @@ export default function Home() {
 | containerClassNames       |Optional| List of classes to apply styles to container component |
 | markerClassName           |Optional| List of classes to apply styles to marker component |
 
-#
-# 
+##
+##
 # Annotation Object:
 This object is used to collect all the selected annotations from the text. 
 ```javascript
@@ -129,29 +129,29 @@ This object is used to collect all the selected annotations from the text.
 | text                        | This is the actual text included in the selection        |
 | category                        | This is the category object (see category object below)        |
 
-#
-#
+##
+##
 # Category Object:
 This object is used to determine how to label the current selection. If you want to label your text as "elephant", you should tell the text annotator that you are labeling elephants. On top of that, it is important for the annotator to understand what is the identifier for elephants so you can later map the annotations with your internal data. Therefore, the object contains the following:
 ```javascript
 { id: 0, color: "" }
 ```
-#
+##
 | Property                          | Description |
 | ------------------------------- | ----------- |
 | id                           | This is the number identifier, and it could represent any identifier that you can use to match to your local data later on |
 | color                        | This is a HEX color that you want to represent the label with        |
 
-#
+##
 # To do
 - Publish example to GitHub pages
 
-#
+##
 # Contribution
 
 Your contributions, whether through [creating issues](https://github.com/vlddlv/react-text-annotation/issues/new) or submitting pull requests, are invaluable to me. Rest assured, I'll be actively engaged and readily available to provide support and guidance every step of the way. Let's collaborate, innovate, and build something amazing together! Remember, no contribution is too small – every effort counts. Looking forward to seeing your ideas and contributions flourish! 🚀✨
 
-#
+##
 # Credits
 
 Originally inspired by Martin Camacho's [react-text-annotate](https://github.com/mcamac/react-text-annotate) and served as the foundation of the component while I was working on [Human Lambdas](https://github.com/Human-Lambdas/human-lambdas) project, neither of which are currently maintained. However, I've given it a makeover to meet the standards we were aiming for.
