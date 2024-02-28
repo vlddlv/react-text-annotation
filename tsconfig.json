@@ -16,7 +16,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "outDir": "lib",
+    "outDir": "dist",
     "jsx": "react-jsx"
   },
   "include": [
