@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import TextWrapper from './components/TextWrapper';
-import { TextAnnotatorProps, TextWrapperProps, Annotation } from './types'
+import { TextAnnotatorProps, TextWrapperProps, Annotation } from '../index'
 
 const TextAnnotator: React.FC<TextWrapperProps<Annotation>> = (props: TextWrapperProps<Annotation>) => {
 

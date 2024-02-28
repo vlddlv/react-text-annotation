@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { MarkProps } from '../types'
+import { MarkProps } from '../../index'
 
 const Mark: React.FC<MarkProps> = (props) => {
   const { category, start, end, content, onClick, markerClassName } = props

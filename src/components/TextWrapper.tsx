@@ -1,16 +1,7 @@
 import React from 'react'
-import styled from '@emotion/styled'
 import { selectionIsEmpty, selectionIsBackwards, splitWithOffsets } from '../functions'
-import { Annotation, TextWrapperProps, SelectionProps } from '../types'
+import { Annotation, TextWrapperProps } from '../../index'
 import Splitter from './Splitter'
-
-const Selection = styled.div<SelectionProps>`
-    & span {
-      &::selection {
-        background-color: ${props => props.backgroundColor};
-      }
-    }
-`
 
 const TextWrapper: React.FC<TextWrapperProps<Annotation>> = (props: TextWrapperProps<Annotation>) => {
 
@@ -65,12 +56,20 @@ const TextWrapper: React.FC<TextWrapperProps<Annotation>> = (props: TextWrapperP
   const { content, value, markerClassName } = props
   const splits = splitWithOffsets(content, value)
 
+  const color = props.category?.color;
+  const className = `sel-${Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000}`
+  let styleElement;
+  if (typeof document !== 'undefined') {
+    styleElement = document.head.appendChild(document.createElement("style"));
+    styleElement.innerHTML = `.${className} span::selection { background-color: ${color}; }`;
+  }
+
   return (
-    <Selection onMouseUp={handleMouseUp} backgroundColor={props.category?.color} className={props.containerClassNames}>
+    <div onMouseUp={handleMouseUp} className={`${props.containerClassNames} ${className}`}>
       {splits.map((split) => (
         <Splitter key={`${split.start}-${split.end}`} {...split} onClick={handleSplitClick} markerClassName={markerClassName}/>
       ))}
-    </Selection>
+    </div>
   )
 }
 

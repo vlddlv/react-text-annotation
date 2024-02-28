@@ -1,6 +1,6 @@
 import React from 'react'
 import Mark from './Mark'
-import { SplitterProps } from '../types'
+import { SplitterProps } from '../../index'
 
 const Splitter: React.FC<SplitterProps> = (props: SplitterProps) => {
     if (props.mark) return <Mark {...props} />
