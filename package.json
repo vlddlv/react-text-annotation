@@ -1,11 +1,11 @@
 {
   "name": "react-text-annotation",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Text annotation component for React",
-  "main": "./lib/index",
+  "main": "./dist/index",
   "type": "module",
   "files": [
-    "./lib/"
+    "./dist/"
   ],
   "scripts": {
     "start": "tsc --watch",
