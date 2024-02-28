@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/Version-0.1.2-orange)](https://www.npmjs.com/package/react-text-annotation) [![Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg)](https://www.npmjs.com/package/react-text-annotation) [![MIT License](https://img.shields.io/badge/MIT-license-blue)](https://github.com/vlddlv/react-text-annotation/blob/main/LICENSE) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) 
+[![Version](https://img.shields.io/badge/Version-0.1.3-orange)](https://www.npmjs.com/package/react-text-annotation) [![Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg)](https://www.npmjs.com/package/react-text-annotation) [![MIT License](https://img.shields.io/badge/MIT-license-blue)](https://github.com/vlddlv/react-text-annotation/blob/main/LICENSE) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) 
 
 
 # Text Annotator ([Live Demo](https://vlddlv.github.io/react-text-annotation/)):
@@ -44,6 +44,7 @@ export default function Home() {
 ```  
 
 # Example of use (TS/Styled Component):
+
 ```javascript
 import { useState, useMemo } from 'react';
 import { TextAnnotator, Annotation, Category } from 'react-text-annotation';
@@ -104,6 +105,7 @@ export default function Home() {
 ```  
 
 # Properties explained:
+
 | Property                          | Type | Description |
 | ------------------------------- | ----------- |----------- |
 | value                           |**Required**| List of currently annotated objects (see annotation object below) |
@@ -113,13 +115,16 @@ export default function Home() {
 | containerClassNames       |Optional| List of classes to apply styles to container component |
 | markerClassName           |Optional| List of classes to apply styles to marker component |  
 
+
 # Annotation Object:
+
 This object is used to collect all the selected annotations from the text. 
+
 ```javascript
 { start: 0, end: 0, text: "", category: { id: 0, color: "" } }
 ```  
 
-#
+
 | Property                          | Description |
 | ------------------------------- | ----------- |
 | start                           | This is the number of cursor's start position where the text selection started |
@@ -127,8 +132,11 @@ This object is used to collect all the selected annotations from the text.
 | text                        | This is the actual text included in the selection        |
 | category                        | This is the category object (see category object below)        |  
 
+
 # Category Object:
+
 This object is used to determine how to label the current selection. If you want to label your text as "elephant", you should tell the text annotator that you are labeling elephants. On top of that, it is important for the annotator to understand what is the identifier for elephants so you can later map the annotations with your internal data. Therefore, the object contains the following:
+
 ```javascript
 { id: 0, color: "" }
 ```  
