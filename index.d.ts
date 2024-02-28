@@ -14,10 +14,6 @@ export interface SplitterProps extends MarkProps {
     mark?: boolean;
 }
 
-export interface SelectionProps {
-    backgroundColor?: string;
-}
-
 export interface Split {
     start: number;
     end: number;
