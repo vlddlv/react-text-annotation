@@ -1,6 +1,6 @@
 {
   "name": "react-text-annotation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Text annotation component for React",
   "main": "./lib/index",
   "type": "module",
