@@ -19,7 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/vlddlv/react-text-annotation.git"
   },
-  "homepage": "https://vlddlv.github.io/react-text-annotation/",
+  "homepage": "https://vlddlv.github.io/react-text-annotation",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"

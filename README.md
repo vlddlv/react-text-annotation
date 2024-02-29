@@ -146,11 +146,11 @@ This object is used to determine how to label the current selection. If you want
 | id                           | This is the number identifier, and it could represent any identifier that you can use to match to your local data later on |
 | color                        | This is a HEX color that you want to represent the label with        |  
 
-# Contribution
+# Contribution:
 
 Your contributions, whether through [creating issues](https://github.com/vlddlv/react-text-annotation/issues/new) or submitting pull requests, are invaluable to me. Rest assured, I'll be actively engaged and readily available to provide support and guidance every step of the way. Let's collaborate, innovate, and build something amazing together! Remember, no contribution is too small – every effort counts. Looking forward to seeing your ideas and contributions flourish! 🚀✨
 
-# Credits
+# Credits:
 
 Originally inspired by Martin Camacho's [react-text-annotate](https://github.com/mcamac/react-text-annotate) and served as the foundation of the component while I was working on [Human Lambdas](https://github.com/Human-Lambdas/human-lambdas) project, neither of which are currently maintained. However, I've given it a makeover to meet the standards we were aiming for.
 
