@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/Version-0.1.3-orange)](https://www.npmjs.com/package/react-text-annotation) [![Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg)](https://www.npmjs.com/package/react-text-annotation) [![MIT License](https://img.shields.io/badge/MIT-license-blue)](https://github.com/vlddlv/react-text-annotation/blob/main/LICENSE) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) 
+[![NPM Version][npm-image]][npm-url] [![Downloads Stats][npm-downloads]][npm-url] [![Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen.svg)](https://www.npmjs.com/package/react-text-annotation) [![MIT License](https://img.shields.io/badge/MIT-license-blue)](https://github.com/vlddlv/react-text-annotation/blob/main/LICENSE) [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) 
 
 
 # Text Annotator ([Live Demo](https://vlddlv.github.io/react-text-annotation/)):
